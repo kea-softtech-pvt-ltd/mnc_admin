@@ -48,14 +48,14 @@ include_once('includes/application_top_no_login.php');
 					<form method="post" name="loginForm" id="loginForm">
 					<div class="form-group">
 						<label class="control-label" for="username">Username</label>
-						<input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control"/>
+						<input type="text" placeholder="example@gmail.com" autocomplete="off" title="Please enter you username" required="" value="" name="username" id="username" class="form-control"/>
 						<div id="email_error" style="color:#FF0000">
 						</div>
 						<span class="help-block small">Your unique username to app</span>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="password">Password</label>
-						<input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control" />
+						<input type="password" title="Please enter your password" autocomplete="off" placeholder="******" required="" value="" name="password" id="password" class="form-control" />
 						<div id="password_error" style="color:#FF0000">
 						</div>
 						<span class="help-block small">Your strong password</span>

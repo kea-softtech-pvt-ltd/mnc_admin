@@ -1,8 +1,14 @@
 <?php
+// include header
+include_once('class/schedule.php');
 include('header.php');
-$query = "select * from ".Sch." where isDeleted='0' order by schedule_id DESC";
-$result = mysqli_query($conn, $query);
-$count = mysqli_num_rows($result);
+
+$sch = new Schedule();
+$schedule = $sch->getAllSchedule();
+$num = count($schedule);
+
+
+
 
 include('template/schedule-list.tpl.php');
 ?>

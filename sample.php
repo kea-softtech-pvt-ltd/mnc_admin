@@ -13,7 +13,7 @@ $test = Array(
 print_r($test);
 
 die;
-$data = Array (
+/*$data = Array (
 			'f_name' => 'apsara',
 			'l_name' => 'ali',
 			'email' => 'apsara@gmail.com',	
@@ -28,7 +28,7 @@ $id = $db->insert ('doctor', $data);
 if($id)
     echo 'doctor created. Id=' . $id;
 die;
-
+*/
 
 ?>
 

@@ -58,7 +58,10 @@ include_once('includes/application_top.php');
                 </span>
                 <span class="logo-lg">
                     <!--<b>Admin</b>BD-->
-                    <img src="assets/dist/img/logo.png" alt="">
+					<?php 					
+					$result = $db->rawQuery("select logo_path from logo where status='1'");					
+					?>
+                    <img src="<?php echo "logo/".$data['logo_path'];?>" alt="">
                 </span>
             </a>
             <!-- Header Navbar -->
@@ -180,13 +183,15 @@ include_once('includes/application_top.php');
                                                              <a href="#"> See all Notifications <i class=" fa fa-arrow-right"></i></a>
                                                          </li>
                                                      </ul>
-                                                 </li>
-                                                 
+                                                 </li>                                                 
                                         <!-- user -->
                                         <li class="dropdown dropdown-user admin-user">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                                                 <div class="user-image">
-                                                    <img src="assets/dist/img/avatar4.png" class="img-circle" height="40" width="40" alt="User Image">
+												<?php												
+												$result = $db->rawQueryOne("select profile from admin");									
+												?>
+												<img src="<?php echo base_url_image.$result['profile'];?>" class="img-circle" height="40" width="40" alt="User Image">
                                                 </div>
                                             </a>
                                             <ul class="dropdown-menu">
@@ -206,8 +211,8 @@ include_once('includes/application_top.php');
                             <div class="sidebar">
                                 <!-- Sidebar user panel -->
                                 <div class="user-panel">
-                                    <div class="image pull-left">
-                                        <img src="assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
+                                    <div class="image pull-left">									
+                                        <img src="<?php echo base_url_image.$result['profile'];?>" class="img-circle" alt="User Image">
                                     </div>
                                     <div class="info">
                                         <h4>Welcome</h4>
@@ -292,7 +297,7 @@ include_once('includes/application_top.php');
                                         </a>
                                         <ul class="treeview-menu">
                                             <li><a href="add-logo.php">Add Logo</a></li>
-                                            <li><a href="manage-logo.php">Manage Logo</a></li>
+                                            <li><a href="logo-list.php">Logo List</a></li>
                                         </ul>
                                     </li>
                                     <!--li class="treeview">

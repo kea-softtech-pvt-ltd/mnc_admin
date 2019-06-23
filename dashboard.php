@@ -1,8 +1,8 @@
 <?php 
 include_once('header.php'); 
-$query = "select * from doctor";
-$result = mysqli_query($conn, $query);
-$data = mysqli_num_rows($result);
+include_once('class/dashboard.php'); 
+
+$dash = new Dashboard();
 
 ?>
 <!--=====================================================================-->
@@ -31,11 +31,9 @@ $data = mysqli_num_rows($result);
 						<div class="panel-body">
 							<div class="statistic-box">
 								<?php 
-								$query = "select * from doctor";
-								$result = mysqli_query($conn, $query);
-								$data = mysqli_num_rows($result);
+									$doctor = $dash->noOfDoctorsRegistered();
 								?>
-								<h2><span class="count-number"><?php echo $data;?></span>
+								<h2><span class="count-number"><?php echo $doctor[0]['count'];?></span>
 								</h2>
 							</div>
 							<div class="items pull-left">
@@ -50,11 +48,9 @@ $data = mysqli_num_rows($result);
 						<div class="panel-body">
 							<div class="statistic-box">
 								<?php 
-								$query = "select * from patient";
-								$result = mysqli_query($conn, $query);
-								$data = mysqli_num_rows($result);
+								$patient = $dash->noOfPatientsRegistered()
 								?>
-								<h2><span class="count-number"><?php echo $data;?></span>
+								<h2><span class="count-number"><?php echo $patient[0]['count'];?></span>
 								</h2>
 							</div>
 							<div class="items pull-left">
@@ -69,11 +65,9 @@ $data = mysqli_num_rows($result);
 						<div class="panel-body">
 							<div class="statistic-box">
 								<?php 
-								$query = "select count(*) as app_cnt from appointment";
-								$result = mysqli_query($conn, $query);
-								$data = mysqli_fetch_assoc($result);
+								$appointment = $dash->getTotalAppointment();
 								?>
-								<h2><span class="count-number"><?php echo $data['app_cnt'];?></span>
+								<h2><span class="count-number"><?php echo $appointment[0]['count'];?></span>
 								</h2>
 							</div>
 							<div class="items pull-left">
@@ -88,11 +82,9 @@ $data = mysqli_num_rows($result);
 						<div class="panel-body">
 							<div class="statistic-box">
 								<?php 
-								$query = "select * from department";
-								$result = mysqli_query($conn, $query);
-								$data = mysqli_num_rows($result);
+							$department = $dash->getTotalDepartment();
 								?>
-								<h2><span class="count-number"><?php echo $data;?></span>
+								<h2><span class="count-number"><?php echo $department[0]['count'];?></span>
 								</h2>
 							</div>
 							<div class="items pull-left">
@@ -162,7 +154,7 @@ $data = mysqli_num_rows($result);
 		<div class="row">
 				<!-- datamap -->
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 ">  
-					<div class="panel panel-bd lobidrag">
+					<div class="panel panel-bd ">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<h4>Line chart</h4>
@@ -175,7 +167,7 @@ $data = mysqli_num_rows($result);
 				</div>
 				<!-- calender -->
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-					<div class="panel panel-bd lobidisable">
+					<div class="panel panel-bd ">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<h4>Calender</h4>
@@ -192,7 +184,7 @@ $data = mysqli_num_rows($result);
 				</div>
 				<!-- Bar Chart -->
 				<div class="col-xs-12 col-sm-12 col-md-6">
-					<div class="panel panel-bd lobidisable">
+					<div class="panel panel-bd ">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<h4>Bar chart</h4>
@@ -203,7 +195,7 @@ $data = mysqli_num_rows($result);
 						</div>
 					</div>
 				</div>
-				 <!-- Radar Chart -->
+				 <!-- Radar Chart >
 				<div class="col-xs-12 col-sm-12 col-md-6">
 					<div class="panel panel-bd lobidisable">
 						<div class="panel-heading">
@@ -215,10 +207,10 @@ $data = mysqli_num_rows($result);
 							<canvas id="radarChart" height="200"></canvas>
 						</div>
 					</div>
-				</div>
+				</div-->
 				 <!-- Basic data map>
 				<div class="col-xs-12 col-sm-6">
-					<div class="panel panel-bd lobidrag">
+					<div class="panel panel-bd ">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<h4>Google Map</h4>
@@ -232,7 +224,7 @@ $data = mysqli_num_rows($result);
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<div class="panel panel-bd lobidrag">
+					<div class="panel panel-bd ">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<h4>DataTables </h4>
@@ -481,6 +473,7 @@ function getLineChart()
 	});
 }
 
+/*
 //radar chart
 function getRadarChart()
 {
@@ -522,6 +515,8 @@ function getRadarChart()
 		}	
 	});
 }		
+*/
+
 
 // Message
 $('.message_inner').slimScroll({
@@ -551,9 +546,9 @@ $(document).ready(function(){
 	getLineChart();
 })
 
-$(document).ready(function(){
-	getRadarChart();
-})
+// $(document).ready(function(){
+	// getRadarChart();
+// })
 
         </script>
 

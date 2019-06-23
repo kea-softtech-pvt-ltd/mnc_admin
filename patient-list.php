@@ -1,10 +1,13 @@
 <?php
-include_once('includes/application_top.php');
 include('header.php');
+include_once('class/patient.php');
 
-$query = "select * from ".Pat." where isDeleted='0' order by patient_id DESC";
-$result = mysqli_query($conn, $query);
-$count = mysqli_num_rows($result);
+
+
+$pat = new Patient();
+$patients = $pat->getAllPatients();
+$num = count($patients);
+
 
 include('template/patient-list.tpl.php');
 ?>

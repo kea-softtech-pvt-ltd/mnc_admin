@@ -12,10 +12,10 @@ $data = mysqli_fetch_assoc($result);
 		<div class="row">
 			<!-- Form controls -->
 			<div class="col-sm-12">
-				<div class="panel panel-bd lobidrag">
+				<div class="panel panel-bd">
 					<div class="panel-heading">
 						<div class="btn-group"> 
-						  Admin
+						  Admin Profile
 					  </div>
 				  </div>
 				  <div class="panel-body">
@@ -88,7 +88,7 @@ $data = mysqli_fetch_assoc($result);
 					<img src="<?php echo base_url_image.$data['profile'];?>" style="width:50px;height:50px">
 					</div>
 					<div class="form-group">
-					<input onclick="validateForm1();" data-toggle="modal" data-target="#display" type="button" name="submit" class="btn btn-primary" value="submit"/>
+					<input onclick="viewProfile();" data-toggle="modal" data-target="#display" type="button" name="submit" class="btn btn-primary" value="submit"/>
 					</div>
 				</form>	
 			</div>
