@@ -1,82 +1,260 @@
-<?php
-include_once('includes/application_top_no_login.php');
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Health Admin panel</title>
-
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="assets/dist/img/ico/favicon.png" type="image/x-icon">
-    
-    <!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Bootstrap rtl -->
-    <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
-    <!-- Pe-icon-7-stroke -->
-    <link href="assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
-    <!-- style css -->
-    <link href="assets/dist/css/stylehealth.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Theme style rtl -->
-    <!--<link href="assets/dist/css/stylehealth-rtl.css" rel="stylesheet" type="text/css"/>-->
-</head>
-<body>
-    <!-- Content Wrapper -->
-    <div class="login-wrapper">
-        
-        <div class="container-center">
-            <div class="panel panel-bd">
-                <div class="panel-heading">
-                    <div class="view-header">
-                        <div class="header-icon">
-                            <i class="pe-7s-unlock"></i>
-                        </div>
-                        <div class="header-title">
-                            <h3>Login</h3>
-                            <small><strong>Please enter your credentials to login.</strong></small>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body">
-					<div class="alert alert-danger" id="error_message" style="display:none;"></div>
-					<form method="post" name="loginForm" id="loginForm">
-					<div class="form-group">
-						<label class="control-label" for="username">Username</label>
-						<input type="text" placeholder="example@gmail.com" autocomplete="off" title="Please enter you username" required="" value="" name="username" id="username" class="form-control"/>
-						<div id="email_error" style="color:#FF0000">
+	<?php include_once('header.php'); ?>
+		<div class="header-video">
+			<div id="hero_video">
+				<div class="content">
+					<h3>Find a Doctor!</h3>
+					<p>
+						Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
+					</p>
+					<form method="post" action="list.html">
+						<div id="custom-search-input">
+							<div class="input-group">
+								<input type="text" class=" search-query" placeholder="Ex. Name, Specialization ....">
+								<input type="submit" class="btn_search" value="Search">
+							</div>
+							<ul>
+								<li>
+									<input type="radio" id="all" name="radio_search" value="all" checked>
+									<label for="all">All</label>
+								</li>
+								<li>
+									<input type="radio" id="doctor" name="radio_search" value="doctor">
+									<label for="doctor">Doctor</label>
+								</li>
+								<li>
+									<input type="radio" id="clinic" name="radio_search" value="clinic">
+									<label for="clinic">Clinic</label>
+								</li>
+							</ul>
 						</div>
-						<span class="help-block small">Your unique username to app</span>
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="password">Password</label>
-						<input type="password" title="Please enter your password" autocomplete="off" placeholder="******" required="" value="" name="password" id="password" class="form-control" />
-						<div id="password_error" style="color:#FF0000">
-						</div>
-						<span class="help-block small">Your strong password</span>
-					</div>
-					<div>
-						<span class="btn btn-primary" onclick="validateForm();">Login</span>
-						<a  href="password.php" class="btn btn-warning">Forgot Password</a>
-						<!--a class="btn btn-warning" href="register.html">Register</a-->
-					</div>
 					</form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.content-wrapper -->
-    <!-- jQuery -->
-    <script src="assets/plugins/jQuery/jquery-1.12.4.min.js" type="text/javascript"></script>
-    <!-- bootstrap js -->
-    <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-</body>
-</html>
+				</div>
+			</div>
+			<img src="img/video_fix.png" alt="" class="header-video--media" data-video-src="video/intro" data-teaser-source="video/intro" data-provider="" data-video-width="1920" data-video-height="750">
+		</div>
+		<!-- /Header video -->
 
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>Find by specialization</h2>
+				<p>Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur. Nonumy ponderum oporteat cu mel, pro movet cetero at.</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_1.svg" width="60" height="60" alt="">
+						<h3>Primary Care</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_2.svg" width="60" height="60" alt="">
+						<h3>Cardiology</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_3.svg" width="60" height="60" alt="">
+						<h3>MRI Resonance</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_4.svg" width="60" height="60" alt="">
+						<h3>Blood test</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_7.svg" width="60" height="60" alt="">
+						<h3>Laboratory</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_5.svg" width="60" height="60" alt="">
+						<h3>Dentistry</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_6.svg" width="60" height="60" alt="">
+						<h3>X - Ray</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="list.html" class="box_cat_home">
+						<i class="icon-info-4"></i>
+						<img src="img/icon_cat_8.svg" width="60" height="60" alt="">
+						<h3>Piscologist</h3>
+						<ul class="clearfix">
+							<li><strong>124</strong>Doctors</li>
+							<li><strong>60</strong>Clinics</li>
+						</ul>
+					</a>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
 
-<script src="js/index.js" type="text/javascript"></script>
+		<div class="bg_color_1">
+			<div class="container margin_120_95">
+				<div class="main_title">
+					<h2>Most Viewed doctors</h2>
+					<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
+				</div>
+				<div id="reccomended" class="owl-carousel owl-theme">
+					<div class="item">
+						<a href="detail-page.html">
+							<div class="views"><i class="icon-eye-7"></i>140</div>
+							<div class="title">
+								<h4>Dr. Julia Holmes<em>Pediatrician - Cardiologist</em></h4>
+							</div><img src="img/doctor_1_carousel.jpg" alt="">
+						</a>
+					</div>
+					<div class="item">
+						<a href="detail-page.html">
+							<div class="views"><i class="icon-eye-7"></i>120</div>
+							<div class="title">
+								<h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
+							</div><img src="img/doctor_2_carousel.jpg" alt="">
+						</a>
+					</div>
+					<div class="item">
+						<a href="detail-page.html">
+							<div class="views"><i class="icon-eye-7"></i>115</div>
+							<div class="title">
+								<h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
+							</div><img src="img/doctor_3_carousel.jpg" alt="">
+						</a>
+					</div>
+					<div class="item">
+						<a href="detail-page.html">
+							<div class="views"><i class="icon-eye-7"></i>98</div>
+							<div class="title">
+								<h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
+							</div><img src="img/doctor_4_carousel.jpg" alt="">
+						</a>
+					</div>
+					<div class="item">
+						<a href="detail-page.html">
+							<div class="views"><i class="icon-eye-7"></i>98</div>
+							<div class="title">
+								<h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
+							</div><img src="img/doctor_5_carousel.jpg" alt="">
+						</a>
+					</div>
+				</div>
+				<!-- /carousel -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /white_bg -->
+		
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>Discover the <strong>online</strong> appointment!</h2>
+				<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne mel.</p>
+			</div>
+			<div class="row add_bottom_30">
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_1">
+						<span></span>
+						<h3>Find a Doctor</h3>
+						<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_2">
+						<span></span>
+						<h3>View profile</h3>
+						<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_3">
+						<h3>Book a visit</h3>
+						<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+			<p class="text-center"><a href="list.html" class="btn_1 medium">Find Doctor</a></p>
+		</div>
+		<!-- /container -->
+
+		<div id="app_section">
+			<div class="container">
+				<div class="row justify-content-around">
+					<div class="col-md-5">
+						<p><img src="img/app_img.svg" alt="" class="img-fluid" width="500" height="433"></p>
+					</div>
+					<div class="col-md-6">
+						<small>Application</small>
+						<h3>Download <strong>Findoctor App</strong> Now!</h3>
+						<p class="lead">Tota omittantur necessitatibus mei ei. Quo paulo perfecto eu, errem percipit ponderum no eos. Has eu mazim sensibus. Ad nonumes dissentiunt qui, ei menandri electram eos. Nam iisque consequuntur cu.</p>
+						<div class="app_buttons wow" data-wow-offset="100">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 43.1 85.9" style="enable-background:new 0 0 43.1 85.9;" xml:space="preserve">
+							<path stroke-linecap="round" stroke-linejoin="round" class="st0 draw-arrow" d="M11.3,2.5c-5.8,5-8.7,12.7-9,20.3s2,15.1,5.3,22c6.7,14,18,25.8,31.7,33.1" />
+							<path stroke-linecap="round" stroke-linejoin="round" class="draw-arrow tail-1" d="M40.6,78.1C39,71.3,37.2,64.6,35.2,58" />
+							<path stroke-linecap="round" stroke-linejoin="round" class="draw-arrow tail-2" d="M39.8,78.5c-7.2,1.7-14.3,3.3-21.5,4.9" />
+						</svg>
+							<a href="#0" class="fadeIn"><img src="img/apple_app.png" alt="" width="150" height="50" data-retina="true"></a>
+							<a href="#0" class="fadeIn"><img src="img/google_play_app.png" alt="" width="150" height="50" data-retina="true"></a>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /app_section -->
+	<?php include_once('footer.php'); ?>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="js/video_header.js"></script>
+	<script>
+		'use strict';
+		HeaderVideo.init({
+			container: $('.header-video'),
+			header: $('.header-video--media'),
+			videoTrigger: $("#video-trigger"),
+			autoPlayVideo: true
+		});
+	</script>
